@@ -1,12 +1,23 @@
 package com.osaid.languageapp;
 
+import end.points.VedioGamesEndPoint;
 import org.junit.jupiter.api.Test;
+import static io.restassured.RestAssured.*;
+import config.test.TestBaseConfig;
 
-import java.io.IOException;
-
-public class SayHelloTest {
+public class SayHelloTest extends TestBaseConfig{
     @Test
-    public void testSayHello() throws IOException {
-        SayHello.main(new String[]{"en"});
+    public void testSayHello() {
+        given()
+                .log().all()
+        .when()
+                .get("videogames")
+        .then()
+                .log().all();
+    }
+
+    @Test
+    public void InterFaceTest(){
+        get(VedioGamesEndPoint.ALL_VEDIO_GAMES).then().log().all();
     }
 }

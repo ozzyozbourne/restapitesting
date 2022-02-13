@@ -7,6 +7,21 @@ repositories {
 dependencies {
     // https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter
     testImplementation 'org.junit.jupiter:junit-jupiter:5.8.2'
+    // https://mvnrepository.com/artifact/io.rest-assured/rest-assured
+    testImplementation 'io.rest-assured:rest-assured:4.5.0'
+    // https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.13.1'
+    // https://mvnrepository.com/artifact/io.rest-assured/json-schema-validator
+    implementation 'io.rest-assured:json-schema-validator:4.5.0'
+    // https://mvnrepository.com/artifact/com.github.scribejava/scribejava-apis
+    implementation 'com.github.scribejava:scribejava-apis:8.3.1'
+    // https://mvnrepository.com/artifact/javax.xml.bind/jaxb-api
+    implementation 'javax.xml.bind:jaxb-api:2.3.1'
+    // https://mvnrepository.com/artifact/com.jayway.jsonpath/json-path
+    implementation 'com.jayway.jsonpath:json-path:2.7.0'
+    // https://mvnrepository.com/artifact/jakarta.xml.bind/jakarta.xml.bind-api
+    implementation 'jakarta.xml.bind:jakarta.xml.bind-api:4.0.0-RC2'
+
 
 }
 

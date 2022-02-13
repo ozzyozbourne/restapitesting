@@ -12,8 +12,10 @@ public class SayHello {
 
         InputStream resourceStream = SayHello.class.getClassLoader().getResourceAsStream(language + ".txt");
         assert resourceStream != null;
-        BufferedReader bufferedInputStream = new BufferedReader(new InputStreamReader(resourceStream, StandardCharsets.UTF_8));
+        BufferedReader bufferedInputStream = new BufferedReader(
+                new InputStreamReader(resourceStream, StandardCharsets.UTF_8));
 
         System.out.println(bufferedInputStream.readLine());
+
     }
 }

@@ -1,0 +1,6 @@
+  <videoGame category="Shooter" rating="Mature">
+    <id>22</id>
+    <name>MyNewGameTseter</name>
+    <releaseDate>2022-02-12T00:00:00+05:30</releaseDate>
+    <reviewScore>99</reviewScore>
+  </videoGame>
