@@ -8,6 +8,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import static io.restassured.RestAssured.*;
 import static org.hamcrest.Matchers.equalTo;
@@ -77,6 +78,43 @@ public class FootBallTest extends FootBallApiConFig {
        List<?> a = JsonPath.read(resposne, "teams..shortName");
        a.forEach(System.out::println);
     }
+
+    @Test
+    public void testG(){
+       ArrayList<?> s = given().
+                pathParam("year", "2021").
+                when().
+                get(FootBallApi.COMPETITIONSNEW).then().extract().response().path("teams");
+        s.forEach(System.out::println);
+        System.out.println("-----------------------------------------------------");
+        System.out.println(s.get(0).getClass());
+    }
+
+    @Test
+    public void testH(){
+      Map<String, ?> st =  given().
+                pathParam("year", "2021").
+                when().
+                get(FootBallApi.COMPETITIONSNEW).then().extract().response()
+              .path("teams.find { it.name == 'Leeds United FC' }");
+        System.out.println("-------------------------------------------------------------------------------------");
+        System.out.println(st);
+    }
+
+    @Test
+    public void testI(){
+      String name  =   given().
+                pathParam("teamId", "57").
+        when().
+                get(FootBallApi.TEAMS).
+        then().
+                extract().response().path("squad.find { it.id == 110 }.name");
+
+        System.out.println("-------------------------------------------------------------------------------------");
+        System.out.println(name);
+    }
+
+
 
 }
 

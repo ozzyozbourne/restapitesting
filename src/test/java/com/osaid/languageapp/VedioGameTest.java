@@ -94,7 +94,7 @@ public class VedioGameTest extends TestBaseConfig {
                 pathParam("videoGameId", "50").
                 when()
                 .get(VedioGamesEndPoint.SINGLE_VEDIO_GAME).
-       then().extract().response().body().as(PojoA.class, ObjectMapperType.JACKSON_2);
+       then().extract().response().body().as(PojoB.class);
         System.out.println(gameObj);
     }
 
