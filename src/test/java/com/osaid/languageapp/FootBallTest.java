@@ -114,6 +114,77 @@ public class FootBallTest extends FootBallApiConFig {
         System.out.println(name);
     }
 
+    @Test
+    public void testk(){
+       List<String> name  =   given().
+                pathParam("teamId", "57").
+                when().
+                get(FootBallApi.TEAMS).
+                then().
+                extract().response().path("squad.findAll { it.position == 'Midfielder' }.name");
+
+        System.out.println("-------------------------------------------------------------------------------------");
+        name.forEach(System.out::println);
+    }
+
+    @Test
+    public void testJ(){
+        String name  =   given().
+                pathParam("teamId", "57").
+                when().
+                get(FootBallApi.TEAMS).
+                then().
+                extract().response().path("squad.max { it.shirtNumber }.name");
+
+        System.out.println("-------------------------------------------------------------------------------------");
+        System.out.println(name);
+    }
+
+    @Test
+    public void testL(){
+        var names  =   given().
+                pathParam("teamId", "57").
+                when().
+                get(FootBallApi.TEAMS);
+        var name = names.path("squad.max { it.shirtNumber }.shirtNumber");
+        System.out.println("-------------------------------------------------------------------------------------");
+        System.out.println(name);
+    }
+
+    @Test
+    public void testM(){
+        var names  =   given().
+                pathParam("teamId", "57").
+                when().
+                get(FootBallApi.TEAMS);
+        var name = names.path("squad.collect { it.id }.sum()");
+        System.out.println("-------------------------------------------------------------------------------------");
+        System.out.println(name);
+    }
+
+    @Test
+    public void testK(){
+        var names  =   given().
+                pathParam("teamId", "57").
+                when().
+                get(FootBallApi.TEAMS);
+        var name = names.path("squad.findAll { it.position == 'Attacker' }.findAll {it.nationality == 'England'}");
+        System.out.println("-------------------------------------------------------------------------------------");
+        System.out.println(name);
+    }
+
+    @Test
+    public void testN(){
+        var a = "Attacker";
+        var b = "England";
+        var names  =   given().
+                pathParam("teamId", "57").
+                when().
+                get(FootBallApi.TEAMS);
+        var name = names.path("squad.findAll { it.position == '%s' }.findAll {it.nationality == '%s'}", a, b);
+        System.out.println("-------------------------------------------------------------------------------------");
+        System.out.println(name);
+    }
 
 
 }
